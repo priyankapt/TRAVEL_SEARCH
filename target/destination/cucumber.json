@@ -1,0 +1,115 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "  User navigate to Blibli travel page and click on hotel tab",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3748000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User is on Blibli Travel page",
+            "match": {
+              "location": "com.quinbay.cucumber.steps.hotelsearch.userIsOnBlibliTravelPage()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-03-03T12:25:18.016Z",
+        "line": 14,
+        "name": "Verify Hotel search with country name",
+        "description": "",
+        "id": "loginfeature;verify-hotel-search-with-country-name",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 54000000,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User Clicks on hotel tab",
+            "match": {
+              "location": "com.quinbay.cucumber.steps.hotelsearch.userClicksOnHotelTab()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 56955000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "User enter country name as \"Bali , Indonesia\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Bali , Indonesia\"",
+                  "offset": 27
+                }
+              ],
+              "location": "com.quinbay.cucumber.steps.hotelsearch.userEnterCountryNameAs(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5065000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "Hotel should be found",
+            "match": {
+              "location": "com.quinbay.cucumber.steps.hotelsearch.hotelShouldBeFound()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@HotelSearchFeature"
+          },
+          {
+            "name": "@Sanity"
+          },
+          {
+            "name": "@Test2"
+          }
+        ]
+      }
+    ],
+    "name": "LoginFeature",
+    "description": "",
+    "id": "loginfeature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/HotelSearch.feature",
+    "tags": [
+      {
+        "name": "@HotelSearchFeature",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@Sanity",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 21
+        }
+      }
+    ]
+  }
+]
