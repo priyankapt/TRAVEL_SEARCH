@@ -3,12 +3,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import java.lang.invoke.SwitchPoint;
 import java.sql.SQLOutput;
 public class hotelsearch {
@@ -16,6 +19,7 @@ public class hotelsearch {
     WebElement subsearch;
     WebElement button1;
     WebElement outclick;
+
 
     @Given("User is on Blibli Travel page")
     public void userIsOnBlibliTravelPage() {
@@ -50,9 +54,12 @@ public class hotelsearch {
 
     @Then("Hotel should be found")
     public void hotelShouldBeFound() throws InterruptedException {
+        Assert.assertTrue(driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]")).isSelected());
+        System.out.println("asserted");
+        Assert.assertTrue(driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]")).isEnabled());
         System.out.println("....");
         Thread.sleep(5000);
-        driver.close();
+       driver.close();
 
     }
 
@@ -72,80 +79,100 @@ public class hotelsearch {
         radio.click();
         Thread.sleep(35000);
         WebElement notfound = driver.findElement(By.xpath("//div[contains(text(),'Hotel tidak ditemukan')]"));
-        WebElement button1 = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
+        WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
         WebElement outclick = driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]"));
         String value = notfound.getText();
         if (value.equals("Hotel tidak ditemukan")) {
             System.out.println("hotels not found");
-            recursivefunction();
-            int othercallingways = 1;
+            Thread.sleep(1000);
+           // recursivefunction();
+            int othercallingways = 4;
             switch (othercallingways) {
                 case 1:
                     System.out.println("SEARCH BY STATE");
-                    subsearch.sendKeys("Tamil Nadu, India");
                     Thread.sleep(1000);
-                    //WebElement outclick= driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]"));
-                    outclick.click();
-                    Thread.sleep(3000);
-                    button1.click();
-                    Thread.sleep(3000);
-                    System.out.println("SEARCHED BY STATE");
-                case 2:
-                    System.out.println("SEARCH BY CITY");
                     recursivefunction();
-                    subsearch.sendKeys("Bangalore");
-                    Thread.sleep(1000);
+                    subsearch.sendKeys("Tamil Nadu, India");
+                    Thread.sleep(2000);
                     outclick.click();
                     Thread.sleep(3000);
-                    button1.click();
+                    searchhotelbutton.click();
                     Thread.sleep(3000);
+                    radiobuttonclick();
+                    Thread.sleep(35000);
+                    hotelnotfound();
+
+                case 2:
+                    Thread.sleep(10000);
+                    System.out.println("SEARCH BY CITY");
+                    Thread.sleep(1000);
+                    recursivefunction();
+                    subsearch.sendKeys("Bangalore, Karnataka, India");
+                    Thread.sleep(2000);
+                    outclick.click();
+                    //Thread.sleep(3000);
+                    searchhotelbutton.click();
+                    Thread.sleep(3000);
+                    radiobuttonclick();
+                    Thread.sleep(35000);
+                    hotelnotfound();
                     System.out.println("SEARCHED BY CITY");
-                    break;
+                    //Thread.sleep(20000);
                 case 3:
-                    System.out.println("Wednesday");
-                    break;
+                    System.out.println("Search by hotel name");
+                    recursivefunction();
+                    subsearch.sendKeys("Zest Hotel Airport Jakarta, Benda, Kota Tangerang, Banten, Indonesia");
+                    Thread.sleep(2000);
+                    outclick.click();
+                    Thread.sleep(3000);
+                    searchhotelbutton.click();
+                    Thread.sleep(3000);
+                    radiobuttonclick();
+                    Thread.sleep(35000);
+                    hotelnotfound();
+                    System.out.println("SEARCHED BY HOTEL NAME");
+                    Thread.sleep(20000);
                 case 4:
-                    System.out.println("Thursday");
+                    System.out.println("all cases checked");
+                    Thread.sleep(3000);
+                    recursivefunction();
+                    Thread.sleep(3000);
+                    subsearch.sendKeys("Bali, Indonesia");
+                    Thread.sleep(2000);
+                    outclick.click();
+                    Thread.sleep(3000);
+                    searchhotelbutton.click();
+                    Thread.sleep(3000);
+                    WebElement hotelclick= driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/span[1]/div[2]/div[1]/a[1]/div[1]/div[2]/span[1]/div[1]"));
+                    hotelclick.click();
+                    Thread.sleep(3000);
+                    WebElement bookroom = driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[3]/button[1]"));
+                    bookroom.click();
+                    System.out.println("Room selected");
                     break;
             }
-
-        } else {
+        }
+        else {
             System.out.println("Hotels found");
         }
-        //othersearch();
     }
-
+    public void hotelnotfound() {
+        WebElement notfound = driver.findElement(By.xpath("//div[contains(text(),'Hotel tidak ditemukan')]"));
+        String value = notfound.getText();
+        if (value.equals("Hotel tidak ditemukan")) {
+            System.out.println("hotels not found for selected filter, try again");
+        }
+    }
+    public void radiobuttonclick() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement radio = driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/ul[1]/li[2]/input[1]"));
+        radio.click();
+        Thread.sleep(3000);
+    }
     public void recursivefunction() {
-
         subsearch = driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"));
         subsearch.click();
         subsearch.clear();
+
     }
 }
-//    public void othersearch() throws InterruptedException {
-//        subsearch.sendKeys("Tamil Nadu, India");
-//        Thread.sleep(1000);
-//        WebElement outclick= driver.findElement(By.xpath("//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]"));
-//        outclick.click();
-//        Thread.sleep(3000);
-//        WebElement button = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
-//        button.click();
-//        System.out.println("button clicked");
-//    }
-
-//    @And("I enter state name as {string}")
-//    public void iEnterStateNameAs(String arg0) {
-//
-//
-//    }
-//
-//    @And("User enter city name as {string}")
-//    public void iEnterCityNameAs(String arg0) {
-//
-//    }
-//
-//    @And("User enter location name as {string}")
-//    public void iEnterLocationNameAs(String arg0) {
-//    }
-//
-//}
