@@ -9,4 +9,6 @@ import org.junit.runner.RunWith;
         glue = {"com.quinbay.cucumber"},
         features = "src/test/resources/features"
 )
-public class CucumberRunner {}
+public class CucumberRunner {
+
+}

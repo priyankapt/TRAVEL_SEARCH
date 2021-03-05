@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3796000000,
+              "duration": 3507000000,
               "status": "passed"
             },
             "line": 6,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-04T09:31:36.990Z",
+        "start_timestamp": "2021-03-05T12:23:02.554Z",
         "line": 14,
         "name": "Verify Hotel search with country name",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 61000000,
+              "duration": 82000000,
               "status": "passed"
             },
             "line": 15,
@@ -46,16 +46,16 @@
           },
           {
             "result": {
-              "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element \u003cinput data-v-b3eb6312\u003d\"\" type\u003d\"text\" placeholder\u003d\"Kota atau nama hotel\" class\u003d\"search-bar-input\"\u003e is not clickable at point (289, 8). Other element would receive the click: \u003cdiv data-v-9407e678\u003d\"\" class\u003d\"header__content\"\u003e...\u003c/div\u003e\n  (Session info: chrome\u003d89.0.4389.72)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Priyankas-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:1070:ae97:fc6f:a102%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.6\u0027, java.version: \u00271.8.0_171\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.72, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /var/folders/w0/n163b2yd2n7...}, goog:chromeOptions: {debuggerAddress: localhost:61899}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: a6965a540289edda52772f41d451dd43\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\n\tat com.quinbay.cucumber.steps.hotelsearch.recursivefunction(hotelsearch.java:174)\n\tat com.quinbay.cucumber.steps.hotelsearch.userEnterCountryNameAs(hotelsearch.java:138)\n\tat ✽.User enter country name as \"Bali , Indonesia\"(file:///Users/priyanka/Downloads/cucumber1/src/test/resources/features/HotelSearch.feature:16)\n",
-              "duration": 48028000000,
+              "error_message": "org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element \u003cinput data-v-b3eb6312\u003d\"\" type\u003d\"text\" placeholder\u003d\"Kota atau nama hotel\" class\u003d\"search-bar-input\"\u003e is not clickable at point (289, 8). Other element would receive the click: \u003cdiv data-v-9407e678\u003d\"\" class\u003d\"header__content\"\u003e...\u003c/div\u003e\n  (Session info: chrome\u003d89.0.4389.72)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Priyankas-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:895:428b:da9d:14f1%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.6\u0027, java.version: \u00271.8.0_171\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.72, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /var/folders/w0/n163b2yd2n7...}, goog:chromeOptions: {debuggerAddress: localhost:60781}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: adec8e3acc05274a7957bf3337e29e7c\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\n\tat com.quinbay.cucumber.steps.hotelsearch.recursivefunction(hotelsearch.java:198)\n\tat com.quinbay.cucumber.steps.hotelsearch.userEnterCountryNameAs(hotelsearch.java:134)\n\tat ✽.User enter country name as \"Bali\"(file:///Users/priyanka/Downloads/cucumber1/src/test/resources/features/HotelSearch.feature:16)\n",
+              "duration": 103141000000,
               "status": "failed"
             },
             "line": 16,
-            "name": "User enter country name as \"Bali , Indonesia\"",
+            "name": "User enter country name as \"Bali\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"Bali , Indonesia\"",
+                  "val": "\"Bali\"",
                   "offset": 27
                 }
               ],
@@ -65,7 +65,6 @@
           },
           {
             "result": {
-              "duration": 1000000,
               "status": "skipped"
             },
             "line": 17,

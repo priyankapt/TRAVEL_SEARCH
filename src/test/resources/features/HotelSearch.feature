@@ -13,7 +13,7 @@ Feature: LoginFeature
   @Test2
   Scenario: Verify Hotel search with country name
     When User Clicks on hotel tab
-    And User enter country name as "Bali , Indonesia"
+    And User enter country name as "Bali"
     Then Hotel should be found
 
   @Test3
@@ -31,5 +31,6 @@ Feature: LoginFeature
   @Test5
   Scenario: Verify Hotel search with point of location name
     When User Clicks on hotel tab
-    And User enter location name as "Stay Inn, Bangalore, Bangalore, Karnataka, India"
+    And User enter location name as "Stay Inn, Ba ngalore, Bangalore, Karnataka, India"
     Then Hotel should be found
+
