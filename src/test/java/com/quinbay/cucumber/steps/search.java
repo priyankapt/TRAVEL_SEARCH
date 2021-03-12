@@ -16,6 +16,7 @@ public class search {
     String name[]={"hotel d batur","Radisson Lampung Kedaton","Zest Hotel Airport Jakarta"};
 
     @Given("User is on Blibli Travel page")
+
     public void userIsOnBlibliTravelPage() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver");
         driver = new ChromeDriver();
