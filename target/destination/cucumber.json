@@ -11,20 +11,20 @@
         "steps": [
           {
             "result": {
-              "duration": 3586000000,
+              "duration": 3508000000,
               "status": "passed"
             },
             "line": 6,
             "name": "User is on Blibli Travel page",
             "match": {
-              "location": "com.quinbay.cucumber.steps.hotelsearch.userIsOnBlibliTravelPage()"
+              "location": "com.quinbay.cucumber.steps.search.userIsOnBlibliTravelPage()"
             },
             "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2021-03-08T05:08:26.921Z",
+        "start_timestamp": "2021-03-12T06:44:50.440Z",
         "line": 14,
         "name": "Verify Hotel search with different formats",
         "description": "",
@@ -34,37 +34,37 @@
         "steps": [
           {
             "result": {
-              "duration": 53000000,
+              "duration": 242000000,
               "status": "passed"
             },
             "line": 15,
             "name": "User Clicks on hotel tab",
             "match": {
-              "location": "com.quinbay.cucumber.steps.hotelsearch.userClicksOnHotelTab()"
+              "location": "com.quinbay.cucumber.steps.search.userClicksOnHotelTab()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 166994000000,
+              "duration": 80990000000,
               "status": "passed"
             },
             "line": 16,
             "name": "User enter search name as country name, state name , hotel name",
             "match": {
-              "location": "com.quinbay.cucumber.steps.hotelsearch.userEnterSearchNameAsCountryNameStateNameHotelName()"
+              "location": "com.quinbay.cucumber.steps.search.userEnterSearchNameAsCountryNameStateNameHotelName()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 5145000000,
+              "duration": 1000000,
               "status": "passed"
             },
             "line": 17,
             "name": "Hotel should be found",
             "match": {
-              "location": "com.quinbay.cucumber.steps.hotelsearch.hotelShouldBeFound()"
+              "location": "com.quinbay.cucumber.steps.search.hotelShouldBeFound()"
             },
             "keyword": "Then "
           }

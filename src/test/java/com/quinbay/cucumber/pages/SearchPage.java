@@ -12,28 +12,20 @@ public class SearchPage {
 
     @FindBy(xpath="//button[contains(text(),'Cari Hotel')]")
     WebElement button;
-
     @FindBy(xpath = "//input[@class='input']")
     WebElement location;
-
     @FindBy(xpath="//button[contains(text(),'Cari Hotel')]")
     WebElement select;
-
     @FindBy(xpath="//div[contains(text(),'Hotel tidak ditemukan')]")
     WebElement notfound;
-
     @FindBy(xpath="//button[contains(text(),'Cari Hotel')]")
     WebElement searchhotelbutton;
-
     @FindBy(xpath="//body/div[@id='travel-blibli-app']/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]")
     WebElement outclick;
-
     @FindBy(xpath="(//li[@class='autocomplete__result-item'])[1]/div/div/div")
     WebElement clickfromlist;
-
     @FindBy(xpath=("//input[@type='checkbox'])[2]"))
     WebElement radiochse;
-
     @FindBy(xpath="//input[@id='billing_postcode']")
     WebElement zip;
     @FindBy(xpath="//input[@id='billing_phone']")
@@ -78,7 +70,5 @@ public class SearchPage {
     {
         radiochse.click();
     }
-
-
 }
 
