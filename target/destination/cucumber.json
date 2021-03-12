@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3508000000,
+              "duration": 3585000000,
               "status": "passed"
             },
             "line": 6,
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-12T06:44:50.440Z",
+        "start_timestamp": "2021-03-12T09:01:53.343Z",
         "line": 14,
         "name": "Verify Hotel search with different formats",
         "description": "",
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 242000000,
+              "duration": 143000000,
               "status": "passed"
             },
             "line": 15,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 80990000000,
+              "duration": 228686000000,
               "status": "passed"
             },
             "line": 16,
@@ -58,7 +58,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 4121000000,
               "status": "passed"
             },
             "line": 17,

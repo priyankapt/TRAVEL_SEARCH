@@ -8,11 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 public class search {
     WebDriver driver;
     WebElement subsearch;
-    WebElement searchhotelbutton;
     int count=3;
 
     @Given("User is on Blibli Travel page")
@@ -57,21 +55,23 @@ public class search {
 
     public int recfunction(int count) throws InterruptedException {
         if (count != 0) {
-                System.out.println("SEARCH BY STATE");
                 subsearch = driver.findElement(By.xpath("//input[@class='search-bar-input']"));
                 subsearch.click();
                 subsearch.clear();
                 Thread.sleep(2000);
                 if(count==3) {
+                    System.out.println("SEARCH BY STATE");
                     subsearch.sendKeys("Tamil Nadu");
                     Thread.sleep(3000);
                 }
                 else if (count==2)
                 {
+                    System.out.println("SEARCH BY CITY");
                     subsearch.sendKeys("Bangalore");
                     Thread.sleep(3000);
 
-                } else if (count == 1) {
+                } else if (count ==1) {
+                    System.out.println("SEARCH BY STATE");
                     subsearch.sendKeys("Andhra");
                     Thread.sleep(3000);
                 }
@@ -80,7 +80,7 @@ public class search {
                 Thread.sleep(4000);
                 WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
                 searchhotelbutton.click();
-                Thread.sleep(6000);
+                Thread.sleep(8000);
                 WebElement radiochse = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]"));
                 Thread.sleep(2000);
                 radiochse.click();
@@ -91,6 +91,21 @@ public class search {
             }
 
         else {
+            subsearch.click();
+            subsearch.clear();
+            subsearch.sendKeys("Zest Hotel Airport Jakarta");
+            Thread.sleep(3000);
+            System.out.println("SEARCH BY HOTEL NAME");
+            WebElement hotelsearch = driver.findElement(By.xpath("(//li[@class='autocomplete__result-item'])[1]/div/div/div"));
+            hotelsearch.click();
+            Thread.sleep(3000);
+            WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
+            searchhotelbutton.click();
+            Thread.sleep(4000);
+            WebElement bookroom = driver.findElement(By.xpath(("//button[@class='see-room-button']")));
+            bookroom.click();
+            Thread.sleep(2000);
+            System.out.println("Room found");
             System.out.println("maximum searches performed " + count);
         }
         return count;
@@ -105,10 +120,9 @@ public class search {
 
     @Then("Hotel should be found")
     public void hotelShouldBeFound() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(4000);
        driver.close();
 
     }
-
 }
 
