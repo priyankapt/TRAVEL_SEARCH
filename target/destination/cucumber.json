@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3585000000,
+              "duration": 3865000000,
               "status": "passed"
             },
             "line": 6,
@@ -24,8 +24,8 @@
         ]
       },
       {
-        "start_timestamp": "2021-03-12T09:01:53.343Z",
-        "line": 14,
+        "start_timestamp": "2021-03-12T13:01:38.777Z",
+        "line": 9,
         "name": "Verify Hotel search with different formats",
         "description": "",
         "id": "loginfeature;verify-hotel-search-with-different-formats",
@@ -34,10 +34,10 @@
         "steps": [
           {
             "result": {
-              "duration": 143000000,
+              "duration": 57000000,
               "status": "passed"
             },
-            "line": 15,
+            "line": 10,
             "name": "User Clicks on hotel tab",
             "match": {
               "location": "com.quinbay.cucumber.steps.search.userClicksOnHotelTab()"
@@ -46,10 +46,11 @@
           },
           {
             "result": {
-              "duration": 228686000000,
-              "status": "passed"
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//body/div[@id\u003d\u0027travel-blibli-app\u0027]/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/ul[1]/li[2]/input[1]\"}\n  (Session info: chrome\u003d89.0.4389.82)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Priyankas-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:1804:e38b:69a5:10d6%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.6\u0027, java.version: \u00271.8.0_171\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.82, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /var/folders/w0/n163b2yd2n7...}, goog:chromeOptions: {debuggerAddress: localhost:57640}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: d410c182e9516a295802a5920116689a\n*** Element info: {Using\u003dxpath, value\u003d//body/div[@id\u003d\u0027travel-blibli-app\u0027]/div[1]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/ul[1]/li[2]/input[1]}\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat com.quinbay.cucumber.steps.search.userEnterSearchNameAsCountryNameStateNameHotelName(search.java:45)\n\tat ✽.User enter search name as country name, state name , hotel name(file:///Users/priyanka/Desktop/cucumber1/src/test/resources/features/HotelSearch.feature:11)\n",
+              "duration": 10496000000,
+              "status": "failed"
             },
-            "line": 16,
+            "line": 11,
             "name": "User enter search name as country name, state name , hotel name",
             "match": {
               "location": "com.quinbay.cucumber.steps.search.userEnterSearchNameAsCountryNameStateNameHotelName()"
@@ -58,10 +59,9 @@
           },
           {
             "result": {
-              "duration": 4121000000,
-              "status": "passed"
+              "status": "skipped"
             },
-            "line": 17,
+            "line": 12,
             "name": "Hotel should be found",
             "match": {
               "location": "com.quinbay.cucumber.steps.search.hotelShouldBeFound()"
@@ -77,7 +77,7 @@
             "name": "@Sanity"
           },
           {
-            "name": "@Test2"
+            "name": "@Test1"
           }
         ]
       }

@@ -58,10 +58,6 @@ public class SearchPage {
         searchhotelbutton.click();
     }
 
-    public void setOutclick (){
-        outclick.click();
-    }
-
     public void setClickfromlist (){
         clickfromlist.click();
     }

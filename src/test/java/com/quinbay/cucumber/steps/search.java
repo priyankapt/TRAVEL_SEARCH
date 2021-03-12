@@ -1,5 +1,4 @@
 package com.quinbay.cucumber.steps;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,10 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 public class search {
     WebDriver driver;
     WebElement subsearch;
-    int count=3;
+    static int count = 0;
+    String state[] = {"Tamil Nadu", "Andhra", "Karnataka"};
+    String name[]={"hotel d batur","Radisson Lampung Kedaton","Zest Hotel Airport Jakarta"};
 
     @Given("User is on Blibli Travel page")
     public void userIsOnBlibliTravelPage() {
@@ -20,12 +22,14 @@ public class search {
         driver.manage().window().maximize();
         driver.get("https://www.blibli.com/travel");
     }
+
     @When("User Clicks on hotel tab")
     public void userClicksOnHotelTab() {
         WebElement hotel = driver.findElement(By.xpath("//i[@class='bli-hotel-ic']"));
         hotel.click();
 
     }
+
     @And("User enter search name as country name, state name , hotel name")
     public void userEnterSearchNameAsCountryNameStateNameHotelName() throws InterruptedException {
         Thread.sleep(3000);
@@ -42,82 +46,83 @@ public class search {
         radio.click();
         Thread.sleep(35000);
         WebElement notfound = driver.findElement(By.xpath("//div[contains(text(),'Hotel tidak ditemukan')]"));
-        WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
         String value = notfound.getText();
-        if (value.equals("Hotel tidak ditemukan")) {
-            System.out.println("hotels not found");
+        if (value.equals("Hotel tidak ditemukan")||value.equals("Kamar Tidak Tersedia")) {
+            System.out.println("hotels/rooms not found");
             Thread.sleep(1000);
-            recfunction(count);
+            //hotels();
+            rooms();
         }
     }
-    public int recfunction(int count) throws InterruptedException {
-        if (count != 0) {
-                subsearch = driver.findElement(By.xpath("//input[@class='search-bar-input']"));
-                subsearch.click();
-                subsearch.clear();
-                Thread.sleep(2000);
-                if(count==3) {
-                    System.out.println("SEARCH BY STATE");
-                    subsearch.sendKeys("Tamil Nadu");
-                    Thread.sleep(3000);
-                }
-                else if (count==2)
-                {
-                    System.out.println("SEARCH BY CITY");
-                    subsearch.sendKeys("Bangalore");
-                    Thread.sleep(3000);
+    public void hotels() throws InterruptedException {
+        if (count == 3 || hotelnotfound()) {
+            return;
+        }
+        subsearch = driver.findElement(By.xpath("//input[@class='search-bar-input']"));
+        subsearch.click();
+        subsearch.clear();
+        subsearch.sendKeys(state[search.count]);
+        Thread.sleep(3000);
+        WebElement clickfromlist = driver.findElement(By.xpath("(//li[@class='autocomplete__result-item'])[1]/div/div/div"));
+        clickfromlist.click();
+        Thread.sleep(4000);
+        WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
+        searchhotelbutton.click();
+        Thread.sleep(8000);
+        WebElement radiochse = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]"));
+        Thread.sleep(8000);
+        radiochse.click();
+        Thread.sleep(35000);
+        search.count++;
+        hotels();
+    }
+    public void rooms() throws InterruptedException {
+        if (count == 3 || roomnotfound()) {
+            return;
+        }
+        subsearch = driver.findElement(By.xpath("//input[@class='search-bar-input']"));
+        subsearch.click();
+        subsearch.clear();
+        subsearch.sendKeys(name[search.count]);
+        Thread.sleep(3000);
+        WebElement clickfromlist = driver.findElement(By.xpath("(//li[@class='autocomplete__result-item'])[1]/div/div/div"));
+        clickfromlist.click();
+        Thread.sleep(4000);
+        WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
+        searchhotelbutton.click();
 
-                } else if (count ==1) {
-                    System.out.println("SEARCH BY STATE");
-                    subsearch.sendKeys("Andhra");
-                    Thread.sleep(3000);
-                }
-                WebElement clickfromlist = driver.findElement(By.xpath("(//li[@class='autocomplete__result-item'])[1]/div/div/div"));
-                clickfromlist.click();
-                Thread.sleep(4000);
-                WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
-                searchhotelbutton.click();
-                Thread.sleep(8000);
-                WebElement radiochse = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]"));
-                Thread.sleep(2000);
-                radiochse.click();
-                Thread.sleep(35000);
-                hotelnotfound();
-                Thread.sleep(2000);
-                return recfunction(count-1);
-            }
-        else {
-            subsearch.click();
-            subsearch.clear();
-            subsearch.sendKeys("Zest Hotel Airport Jakarta");
-            Thread.sleep(3000);
-            System.out.println("SEARCH BY HOTEL NAME");
-            WebElement hotelsearch = driver.findElement(By.xpath("(//li[@class='autocomplete__result-item'])[1]/div/div/div"));
-            hotelsearch.click();
-            Thread.sleep(3000);
-            WebElement searchhotelbutton = driver.findElement(By.xpath("//button[contains(text(),'Cari Hotel')]"));
-            searchhotelbutton.click();
-            Thread.sleep(4000);
-            WebElement bookroom = driver.findElement(By.xpath(("//button[@class='see-room-button']")));
-            bookroom.click();
-            Thread.sleep(2000);
-            System.out.println("Room found");
-            System.out.println("maximum searches performed " + count);
-        }
-        return count;
+        Thread.sleep(8000);
+        search.count++;
+        rooms();
     }
-    public void hotelnotfound() {
-        WebElement notfound = driver.findElement(By.xpath("//div[contains(text(),'Hotel tidak ditemukan')]"));
-        String value = notfound.getText();
+
+    public boolean hotelnotfound() {
+        WebElement hotelnotfound = driver.findElement(By.xpath("//div[contains(text(),'Hotel tidak ditemukan')]"));
+        String value = hotelnotfound.getText();
         if (value.equals("Hotel tidak ditemukan")) {
             System.out.println("hotels not found for selected filter, try again");
+            return false;
         }
+        return true;
     }
+
+    public boolean roomnotfound() {
+        WebElement roomnotfound = driver.findElement(By.xpath("//div[contains(text(),'Kamar Tidak Tersedia')]"));
+        String value1 = roomnotfound.getText();
+        if (value1.equals("Kamar Tidak Tersedia")) {
+            System.out.println("Rooms not found for selected filter, try again");
+            return false;
+        }
+        return true;
+    }
+
+
     @Then("Hotel should be found")
     public void hotelShouldBeFound() throws InterruptedException {
         Thread.sleep(4000);
-       driver.close();
-
+        driver.close();
     }
 }
+
+
 
