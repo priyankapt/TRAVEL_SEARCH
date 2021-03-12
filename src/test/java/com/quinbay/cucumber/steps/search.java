@@ -20,14 +20,12 @@ public class search {
         driver.manage().window().maximize();
         driver.get("https://www.blibli.com/travel");
     }
-
     @When("User Clicks on hotel tab")
     public void userClicksOnHotelTab() {
         WebElement hotel = driver.findElement(By.xpath("//i[@class='bli-hotel-ic']"));
         hotel.click();
 
     }
-
     @And("User enter search name as country name, state name , hotel name")
     public void userEnterSearchNameAsCountryNameStateNameHotelName() throws InterruptedException {
         Thread.sleep(3000);
@@ -52,7 +50,6 @@ public class search {
             recfunction(count);
         }
     }
-
     public int recfunction(int count) throws InterruptedException {
         if (count != 0) {
                 subsearch = driver.findElement(By.xpath("//input[@class='search-bar-input']"));
@@ -89,7 +86,6 @@ public class search {
                 Thread.sleep(2000);
                 return recfunction(count-1);
             }
-
         else {
             subsearch.click();
             subsearch.clear();
@@ -117,7 +113,6 @@ public class search {
             System.out.println("hotels not found for selected filter, try again");
         }
     }
-
     @Then("Hotel should be found")
     public void hotelShouldBeFound() throws InterruptedException {
         Thread.sleep(4000);
